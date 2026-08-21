@@ -1,0 +1,7 @@
+{
+  "name": "boardroom-jas-yoy",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "test": "node validate.mjs && node validate-scripts.mjs && node config.test.mjs && node business-logic.test.mjs" },
+  "engines": { "node": ">=18" }
+}
