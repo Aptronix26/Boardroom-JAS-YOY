@@ -8,5 +8,11 @@ globalThis.DASHBOARD_CONFIG = Object.freeze({
     comparablePeriod: "JAS 2025",
     periodUnit: "year-over-year comparable quarter"
   }),
+  governance: Object.freeze({
+    source: "JAS YOY dump(1).xlsx",
+    dataThrough: "13 Aug 2026",
+    published: "22 Aug 2026",
+    expectedStores: 76
+  }),
   dataClassification: "Internal business reporting"
 });
