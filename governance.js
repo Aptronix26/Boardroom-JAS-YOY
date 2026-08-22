@@ -7,7 +7,8 @@
     { id: "daily-mtd", label: "Daily MTD", href: "https://aptronix26.github.io/Retail-Sales-MTD/" },
     { id: "weekly-comparison", label: "Weekly", href: "https://aptronix26.github.io/Boardroom-JAS-Weekly/" },
     { id: "quarter-to-date", label: "QTD", href: "https://aptronix26.github.io/Boardroom-JAS-QTD/" },
-    { id: "year-over-year", label: "YoY", href: "https://aptronix26.github.io/Boardroom-JAS-YOY/" }
+    { id: "year-over-year", label: "YoY", href: "https://aptronix26.github.io/Boardroom-JAS-YOY/" },
+    { id: "weekly-trajectory", label: "Trajectory", href: "https://aptronix26.github.io/Weekly-Trajectory-Intelligence/" }
   ];
 
   const sum = (rows, key) => rows.reduce((total, row) => total + (Number(row && row[key]) || 0), 0);

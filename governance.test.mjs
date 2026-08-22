@@ -19,7 +19,7 @@ assert.ok(config.governance.dataThrough, "data-through label is required");
 assert.ok(config.governance.published, "published date is required");
 assert.match(script, /DASHBOARD_GOVERNANCE/);
 assert.match(script, /Automated reconciliation/);
-for (const path of ["Retail-Sales-MTD", "Boardroom-JAS-Weekly", "Boardroom-JAS-QTD", "Boardroom-JAS-YOY"]) {
+for (const path of ["Retail-Sales-MTD", "Boardroom-JAS-Weekly", "Boardroom-JAS-QTD", "Boardroom-JAS-YOY", "Weekly-Trajectory-Intelligence"]) {
   assert.match(script, new RegExp(`aptronix26\\.github\\.io/${path}/`, "i"));
 }
 assert.match(styles, /governance-switcher/);
