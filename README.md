@@ -12,7 +12,7 @@ Run `npm test` with Node.js 18 or later.
 
 ## Data note
 
-The comparison is an embedded static snapshot. Update both comparable-period datasets and the reporting-date labels together.
+The comparison is an embedded static snapshot through 25 Aug 2026. The supplied JAS'26 source omits 19–31 Jul, so the validated snapshot through 13 Aug is retained and complete 14–25 Aug increments are added. Both comparable-period labels and datasets must move together.
 
 ## Quality controls
 
