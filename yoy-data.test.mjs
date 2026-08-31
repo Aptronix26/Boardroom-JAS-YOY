@@ -24,12 +24,12 @@ for (let index = 0; index < source.length; index += 1) {
 const data = JSON.parse(source.slice(0, end));
 const close = (left, right) => Math.abs(left - right) <= Math.max(1, Math.abs(right) * 1e-9);
 
-test("YoY reporting window is complete through 25 Aug", () => {
-  assert.equal(data.meta.actual_cutoff, "25 Aug 2026");
-  assert.equal(data.meta.days_actual, 56);
-  assert.equal(data.daily.length, 56);
+test("YoY reporting window is complete through 30 Aug", () => {
+  assert.equal(data.meta.actual_cutoff, "30 Aug 2026");
+  assert.equal(data.meta.days_actual, 61);
+  assert.equal(data.daily.length, 61);
   assert.match(data.meta.method, /omits 19–31 Jul/);
-  assert.match(data.meta.method, /14–25 Aug increments/);
+  assert.match(data.meta.method, /26–30 Aug increments/);
 });
 
 test("retail detail reconciles to overall comparable revenue", () => {
