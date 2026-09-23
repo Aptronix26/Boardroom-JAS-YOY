@@ -24,12 +24,13 @@ for (let index = 0; index < source.length; index += 1) {
 const data = JSON.parse(source.slice(0, end));
 const close = (left, right) => Math.abs(left - right) <= Math.max(1, Math.abs(right) * 1e-9);
 
-test("YoY reporting window is complete through 30 Aug", () => {
-  assert.equal(data.meta.actual_cutoff, "30 Aug 2026");
-  assert.equal(data.meta.days_actual, 61);
-  assert.equal(data.daily.length, 61);
-  assert.match(data.meta.method, /omits 19–31 Jul/);
-  assert.match(data.meta.method, /26–30 Aug increments/);
+test("YoY reporting window is complete through 20 Sep", () => {
+  assert.equal(data.meta.actual_cutoff, "20 Sep 2026");
+  assert.equal(data.meta.days_actual, 82);
+  assert.equal(data.daily.length, 82);
+  assert.match(data.meta.method, /every calendar date/);
+  assert.match(data.meta.method, /through 27 Sep/);
+  assert.ok(data.meta.schema_repairs.shifted_2026_rows > 0);
 });
 
 test("retail detail reconciles to overall comparable revenue", () => {
@@ -47,4 +48,14 @@ test("growth, exit, and store breadth use the approved formulas", () => {
   assert.ok(close(data.overall.exit_rev, data.overall.ly_full.rev * (1 + growth / 100)));
   assert.equal(data.overall.stores_growing + data.overall.stores_declining, data.overall.retail_stores);
   assert.equal(data.storeCategory.length, data.stores.length * 5);
+});
+
+test("quality-of-sale metrics are source-backed", () => {
+  assert.ok(data.overall.core_asp25 > 0);
+  assert.ok(data.overall.core_asp26 > 0);
+  assert.ok(data.overall.attach25.device_invoices > 0);
+  assert.ok(data.overall.attach26.device_invoices > 0);
+  assert.ok(data.appleAccessoryLob.length >= 5);
+  assert.ok(data.thirdPartyAccessoryLob.length >= 5);
+  assert.ok(Object.keys(data.overall.attach26.combo_counts).length > 0);
 });
