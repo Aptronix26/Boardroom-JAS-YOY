@@ -64,7 +64,7 @@ function filterStore(){
    rows.innerHTML=unitStoreRows(arr); title.textContent=lob+' Store Intelligence — Units';
    note.textContent=lob+' is a core LOB, so this view intentionally uses units rather than revenue. LY and CY are unit counts for the same comparable period. Projected exit is shown in units using the current 82-day unit run-rate.';
  }
-}function quality(){let a=D.overall.attach25,b=D.overall.attach26,o=D.overall;
+}function quality(){let a=D.overall.attach25,b=D.overall.attach26,o=D.overall,combos=Object.entries(b.combo_counts||{});
 let move=(cy,ly)=>`${cy-ly>=0?'+':''}${(cy-ly).toFixed(1)} pts`;
 return `<section class="section active">
 <div class="kpis">
@@ -92,7 +92,7 @@ ${kpi('Multi-LOB Bills',`${b.multi_lob_rate.toFixed(1)}%`,`${a.multi_lob_rate.to
 <div class="tablewrap"><table><thead><tr><th>Top CY combination</th><th>Invoices</th><th>Share of multi-LOB</th></tr></thead><tbody>
 ${Object.entries(b.combo_counts||{}).slice(0,5).map(([name,count])=>`<tr><td>${name}</td><td>${n(count)}</td><td>${b.multi_device?(count/b.multi_device*100).toFixed(1):'0.0'}%</td></tr>`).join('')}
 </tbody></table></div>
-<div class="insight" style="margin-top:12px"><b>Read</b><span>iPhone + Watch is the largest multi-device combination, followed by AirPods + iPhone. This page now treats basket depth as a specific cross-LOB behavior rather than a generic attach metric.</span></div>
+<div class="insight" style="margin-top:12px"><b>Read</b><span>${combos[0]?.[0]||'No combination'} is the largest multi-device combination${combos[1]?`, followed by ${combos[1][0]}`:''}. This page treats basket depth as a specific cross-LOB behavior rather than a generic attach metric.</span></div>
 </div>
 </div>
 
