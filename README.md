@@ -12,7 +12,7 @@ Run `npm test` with Node.js 18 or later.
 
 ## Data note
 
-The comparison is an embedded static snapshot through 30 Aug 2026. The supplied JAS'26 source omits 19–31 Jul, so the validated dashboard snapshot through 25 Aug is retained and complete 26–30 Aug increments are added. Both comparable-period labels and datasets must move together.
+The comparison is an embedded static snapshot through 20 Sep 2026. JAS'26 is compared with the exact same 82 calendar dates in JAS'25; the available JAS'25 retail seasonal base through 27 Sep is retained for the exit projection. Both comparable-period labels and datasets must move together.
 
 ## Quality controls
 
