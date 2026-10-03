@@ -24,13 +24,16 @@ for (let index = 0; index < source.length; index += 1) {
 const data = JSON.parse(source.slice(0, end));
 const close = (left, right) => Math.abs(left - right) <= Math.max(1, Math.abs(right) * 1e-9);
 
-test("YoY reporting window is complete through 20 Sep", () => {
-  assert.equal(data.meta.actual_cutoff, "20 Sep 2026");
-  assert.equal(data.meta.days_actual, 82);
-  assert.equal(data.daily.length, 82);
-  assert.match(data.meta.method, /every calendar date/);
-  assert.match(data.meta.method, /through 27 Sep/);
-  assert.ok(data.meta.schema_repairs.shifted_2026_rows > 0);
+test("YoY reporting window uses the aligned OND opening period", () => {
+  assert.equal(data.meta.actual_cutoff, "02 Oct 2026");
+  assert.equal(data.meta.days_actual, 6);
+  assert.equal(data.daily.length, 6);
+  assert.deepEqual(data.meta.periods.current, ["2026-09-27", "2026-10-02"]);
+  assert.deepEqual(data.meta.periods.prior, ["2025-09-28", "2025-10-03"]);
+  assert.equal(data.meta.periods.quarter_days, 91);
+  assert.deepEqual(data.meta.missing_dates.current, []);
+  assert.deepEqual(data.meta.missing_dates.prior, ["2025-09-29"]);
+  assert.equal(data.meta.schema_repairs.shifted_2027_rows, 0);
 });
 
 test("retail detail reconciles to overall comparable revenue", () => {
@@ -40,6 +43,8 @@ test("retail detail reconciles to overall comparable revenue", () => {
   assert.ok(close(data.stores.reduce((sum, row) => sum + row.ly_lfl.rev, 0), data.overall.ly_lfl.rev));
   assert.ok(close(data.daily.reduce((sum, row) => sum + row.rev26, 0), data.overall.cy_lfl.rev));
   assert.ok(close(data.daily.reduce((sum, row) => sum + row.rev25, 0), data.overall.ly_lfl.rev));
+  assert.ok(close(data.overall.cy_lfl.rev, 465439318.9700193));
+  assert.ok(close(data.overall.ly_lfl.rev, 715344547.4200464));
 });
 
 test("growth, exit, and store breadth use the approved formulas", () => {
@@ -58,4 +63,6 @@ test("quality-of-sale metrics are source-backed", () => {
   assert.ok(data.appleAccessoryLob.length >= 5);
   assert.ok(data.thirdPartyAccessoryLob.length >= 5);
   assert.ok(Object.keys(data.overall.attach26.combo_counts).length > 0);
+  assert.equal(data.meta.quality_quarantine.prior_full_rows, 28);
+  assert.ok(data.overall.ly_full.disc_pct < 20);
 });

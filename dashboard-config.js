@@ -1,17 +1,17 @@
 globalThis.DASHBOARD_CONFIG = Object.freeze({
   id: "year-over-year",
-  title: "Boardroom Intelligence — JAS Year over Year",
+  title: "Boardroom Intelligence — OND Year over Year",
   reporting: Object.freeze({
-    label: "JAS 2025 versus JAS 2026 · Actual through 20 Sep 2026",
-    asOf: "2026-09-20",
-    currentPeriod: "JAS 2026",
-    comparablePeriod: "JAS 2025",
+    label: "OND 2026 versus OND 2027 · Actual through 2 Oct 2026",
+    asOf: "2026-10-02",
+    currentPeriod: "OND 2027",
+    comparablePeriod: "OND 2026",
     periodUnit: "year-over-year comparable quarter"
   }),
   governance: Object.freeze({
-    source: "Validated YOY retail source",
-    dataThrough: "20 Sep 2026",
-    published: "23 Sep 2026",
+    source: "Validated OND year-over-year retail workbook",
+    dataThrough: "2 Oct 2026",
+    published: "3 Oct 2026",
     expectedStores: 76
   }),
   dataClassification: "Internal business reporting"

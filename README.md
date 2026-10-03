@@ -1,6 +1,6 @@
-# Boardroom Intelligence — JAS Year over Year
+# Boardroom Intelligence — OND Year over Year
 
-Standalone year-over-year dashboard comparing JAS 2025 and JAS 2026 across executive, growth, product, store, quality, and methodology views.
+Standalone year-over-year dashboard comparing OND 2026 and OND 2027 across executive, growth, product, store, quality, and methodology views.
 
 ## Run and deploy
 
@@ -12,7 +12,11 @@ Run `npm test` with Node.js 18 or later.
 
 ## Data note
 
-The comparison is an embedded static snapshot through 20 Sep 2026. JAS'26 is compared with the exact same 82 calendar dates in JAS'25; the available JAS'25 retail seasonal base through 27 Sep is retained for the exit projection. Both comparable-period labels and datasets must move together.
+The comparison is an embedded static snapshot through 2 Oct 2026. OND'27 uses 6 aligned fiscal-quarter calendar days versus OND'26; the available OND'26 retail seasonal base through 27 Dec 2025 is retained for the exit projection. Both comparable-period labels and datasets must move together.
+
+- The prior source has no rows for 29 Sep 2025; the aligned day is retained as zero activity.
+- Aptronix Felix Plaza is outside the approved 76-store scope.
+- Twenty-eight prior-base accessory rows with UPC-sized MRP and discount values are excluded from those quality fields while signed revenue remains unchanged.
 
 ## Quality controls
 
