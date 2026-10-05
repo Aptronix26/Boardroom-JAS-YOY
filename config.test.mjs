@@ -6,7 +6,7 @@ assert.equal(typeof config.id, "string");
 assert.ok(config.id.length > 0);
 assert.equal(typeof config.title, "string");
 assert.ok(config.reporting && typeof config.reporting.label === "string");
-assert.equal(config.reporting.asOf, "2026-10-02");
+assert.equal(config.reporting.asOf, "2026-10-04");
 assert.equal(config.reporting.currentPeriod, "OND 2027");
 assert.equal(config.reporting.comparablePeriod, "OND 2026");
 assert.equal(config.governance.expectedStores, 76);

@@ -25,11 +25,11 @@ const data = JSON.parse(source.slice(0, end));
 const close = (left, right) => Math.abs(left - right) <= Math.max(1, Math.abs(right) * 1e-9);
 
 test("YoY reporting window uses the aligned OND opening period", () => {
-  assert.equal(data.meta.actual_cutoff, "02 Oct 2026");
-  assert.equal(data.meta.days_actual, 6);
-  assert.equal(data.daily.length, 6);
-  assert.deepEqual(data.meta.periods.current, ["2026-09-27", "2026-10-02"]);
-  assert.deepEqual(data.meta.periods.prior, ["2025-09-28", "2025-10-03"]);
+  assert.equal(data.meta.actual_cutoff, "04 Oct 2026");
+  assert.equal(data.meta.days_actual, 8);
+  assert.equal(data.daily.length, 8);
+  assert.deepEqual(data.meta.periods.current, ["2026-09-27", "2026-10-04"]);
+  assert.deepEqual(data.meta.periods.prior, ["2025-09-28", "2025-10-05"]);
   assert.equal(data.meta.periods.quarter_days, 91);
   assert.deepEqual(data.meta.missing_dates.current, []);
   assert.deepEqual(data.meta.missing_dates.prior, ["2025-09-29"]);
@@ -43,8 +43,8 @@ test("retail detail reconciles to overall comparable revenue", () => {
   assert.ok(close(data.stores.reduce((sum, row) => sum + row.ly_lfl.rev, 0), data.overall.ly_lfl.rev));
   assert.ok(close(data.daily.reduce((sum, row) => sum + row.rev26, 0), data.overall.cy_lfl.rev));
   assert.ok(close(data.daily.reduce((sum, row) => sum + row.rev25, 0), data.overall.ly_lfl.rev));
-  assert.ok(close(data.overall.cy_lfl.rev, 465439318.9700193));
-  assert.ok(close(data.overall.ly_lfl.rev, 715344547.4200464));
+  assert.ok(close(data.overall.cy_lfl.rev, 648368794.1200551));
+  assert.ok(close(data.overall.ly_lfl.rev, 1004664279.5700825));
 });
 
 test("growth, exit, and store breadth use the approved formulas", () => {

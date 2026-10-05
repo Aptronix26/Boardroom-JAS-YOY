@@ -12,7 +12,7 @@ Run `npm test` with Node.js 18 or later.
 
 ## Data note
 
-The comparison is an embedded static snapshot through 2 Oct 2026. OND'27 uses 6 aligned fiscal-quarter calendar days versus OND'26; the available OND'26 retail seasonal base through 27 Dec 2025 is retained for the exit projection. Both comparable-period labels and datasets must move together.
+The comparison is an embedded static snapshot through 4 Oct 2026. OND'27 uses 8 aligned fiscal-quarter calendar days versus OND'26; the available OND'26 retail seasonal base through 27 Dec 2025 is retained for the exit projection. Both comparable-period labels and datasets must move together.
 
 - The prior source has no rows for 29 Sep 2025; the aligned day is retained as zero activity.
 - Aptronix Felix Plaza is outside the approved 76-store scope.
